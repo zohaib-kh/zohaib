@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
+import { Github, Linkedin, Mail } from "lucide-react"; // <-- added icons
 
 export default function Home() {
   return (
@@ -58,7 +59,7 @@ export default function Home() {
         <span className="font-semibold text-purple-600">Tailwind CSS</span>.
       </motion.p>
 
-      {/* Buttons */}
+      {/* Buttons with Icons */}
       <motion.div
         className="flex flex-wrap justify-center gap-6 mt-10"
         initial={{ opacity: 0 }}
@@ -66,26 +67,28 @@ export default function Home() {
         transition={{ delay: 0.7 }}
       >
         <a
-          href="https://github.com/"
+          href="https://github.com/zohaib-kh/zohaib"
           target="_blank"
           rel="noreferrer"
-          className="px-6 py-4 text-base sm:text-lg bg-fuchsia-500 text-white rounded-lg hover:bg-fuchsia-600 transition"
+          className="p-4 bg-fuchsia-500 text-white rounded-full hover:bg-fuchsia-600 transition transform hover:scale-110"
         >
-          GitHub
+          <Github className="w-6 h-6" />
         </a>
+
         <a
           href="https://www.linkedin.com/in/zohaib-aman-khan-b81a2b377/"
           target="_blank"
           rel="noreferrer"
-          className="px-6 py-4 text-base sm:text-lg bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          className="p-4 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition transform hover:scale-110"
         >
-          LinkedIn
+          <Linkedin className="w-6 h-6" />
         </a>
+
         <a
           href="mailto:zohaibkh2004@yahoo.com"
-          className="px-6 py-4 text-base sm:text-lg bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+          className="p-4 bg-green-600 text-white rounded-full hover:bg-green-700 transition transform hover:scale-110"
         >
-          Email Me
+          <Mail className="w-6 h-6" />
         </a>
       </motion.div>
     </section>
