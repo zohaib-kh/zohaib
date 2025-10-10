@@ -13,7 +13,7 @@ const experiences = [
   {
     role: "Full Stack Web Development Trainee",
     company: "Corvit Network, Lahore",
-    date: "Sept 2025 – Present",
+    date: "July 2025 – Present",
     type: "Part-time (Training)",
     desc: "Enrolled in a professional full stack development course to strengthen backend expertise. Learning advanced concepts in Node.js, Express, MongoDB, and API integration alongside practical project work.",
     tech: ["Node.js", "Express", "MongoDB", "React"],

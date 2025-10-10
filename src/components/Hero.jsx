@@ -1,4 +1,5 @@
 import React from "react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -13,18 +14,31 @@ const Hero = () => {
         I’m a passionate developer building cool projects 🚀 and always eager to learn new technologies.
       </p>
 
-      <div className="flex gap-4 mt-8">
-        <a href="https://github.com" target="_blank" rel="noreferrer"
-           className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition duration-300">
-          GitHub
+      {/* Social Icons */}
+      <div className="flex gap-6 mt-8">
+        <a
+          href="https://github.com/zohaib-kh"
+          target="_blank"
+          rel="noreferrer"
+          className="p-3 bg-gray-900 text-white rounded-full hover:bg-gray-700 transition duration-300"
+        >
+          <Github className="w-6 h-6" />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer"
-           className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-800 transition duration-300">
-          LinkedIn
+
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noreferrer"
+          className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-800 transition duration-300"
+        >
+          <Linkedin className="w-6 h-6" />
         </a>
-        <a href="mailto:test@example.com"
-           className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-800 transition duration-300">
-          Email Me
+
+        <a
+          href="mailto:zk86443@gmail.com"
+          className="p-3 bg-green-600 text-white rounded-full hover:bg-green-800 transition duration-300"
+        >
+          <Mail className="w-6 h-6" />
         </a>
       </div>
 
