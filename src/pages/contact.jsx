@@ -3,39 +3,48 @@ import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const Contact = () => {
   const form = useRef();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID", // 🔹 replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // 🔹 replace with your EmailJS template ID
-        form.current,
-        "YOUR_PUBLIC_KEY" // 🔹 replace with your public key
-      )
-      .then(
-        () => {
-          toast.success("✅ Message sent successfully!", {
-            position: "top-right",
-            autoClose: 3000,
-            theme: "colored",
-          });
-          e.target.reset();
-        },
-        (error) => {
-          toast.error("❌ Failed to send message. Try again later.", {
-            position: "top-right",
-            autoClose: 3000,
-            theme: "colored",
-          });
-          console.error(error.text);
-        }
-      );
+const sendEmail = async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: form.current.name.value,
+    email: form.current.email.value,
+    message: form.current.message.value,
   };
+
+  try {
+    const response = await axios.post("http://localhost:5000/send", formData);
+
+    if (response.data.success) {
+      toast.success("✅ Message sent successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+        theme: "colored",
+      });
+      e.target.reset();
+    } else {
+      toast.error("❌ Message failed to send!", {
+        position: "top-right",
+        autoClose: 3000,
+        theme: "colored",
+      });
+    }
+  } catch (error) {
+    toast.error("❌ Server error! Try again later.", {
+      position: "top-right",
+      autoClose: 3000,
+      theme: "colored",
+    });
+    console.error(error);
+  }
+};
+
 
   return (
     <section
@@ -62,14 +71,14 @@ const Contact = () => {
         <div className="flex flex-col gap-4">
           <input
             type="text"
-            name="from_name"
+            name="name"
             placeholder="Your Name"
             required
             className="p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-gray-800 dark:text-white focus:outline-none focus:border-blue-600 transition"
           />
           <input
             type="email"
-            name="from_email"
+            name="email"
             placeholder="Your Email"
             required
             className="p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-gray-800 dark:text-white focus:outline-none focus:border-blue-600 transition"
